@@ -38,7 +38,8 @@ namespace ColorProject
         }
         private void topPanel_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawLine
+            Pen p = new Pen(Color.White);
+            e.Graphics.DrawLine(p, 0, 98, 799, 98);
         }
         private void topLabel_Paint(object sender, PaintEventArgs e)
         {
