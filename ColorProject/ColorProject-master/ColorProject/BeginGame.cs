@@ -16,5 +16,13 @@ namespace ColorProject
         {
             InitializeComponent();
         }
+        private void BeginGame_Load(object sender, EventArgs e)
+        {
+            //Form
+            this.Location = new Point(0, 0);
+            this.Width = Screen.GetWorkingArea(this).Width;
+            this.Height = Screen.GetWorkingArea(this).Height;
+            this.Update();
+        }
     }
 }

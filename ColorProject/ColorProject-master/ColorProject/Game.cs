@@ -40,6 +40,7 @@ namespace ColorProject
             this.Location = new Point(0, 0);
             this.Width = Screen.GetWorkingArea(this).Width;
             this.Height= Screen.GetWorkingArea(this).Height;
+            this.Update();
             //Top1
             topPanel.Height = 100;
             topPanel.Width = Screen.GetWorkingArea(this).Width;
