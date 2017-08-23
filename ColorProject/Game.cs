@@ -6,18 +6,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ColorProject
 {
-    public partial class Form1 : Form
+    public partial class Game : Form
     {
         bool clickedRightColor, clickedRightName, clickedRightNameColor;
         List<string> colors = new List<string>();
         Random r = new Random();
         int randomColor, amountOfClicks;
         string colorOutput;
-        public Form1()
+        System.Diagnostics.Stopwatch clickingTimer = new System.Diagnostics.Stopwatch();
+        public Game()
         {
             colors.Add("Red");
             colors.Add("Orange");
@@ -29,7 +31,6 @@ namespace ColorProject
             colorOutput = colors[randomColor];
             amountOfClicks = 0;
             InitializeComponent();
-            topLabel.Text = colorOutput;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -54,7 +55,7 @@ namespace ColorProject
             leftColorPanel.Height = Convert.ToInt32(leftPanel.Height *.8);
             leftColorPanel.Width = Convert.ToInt32(leftPanel.Width * .8);
             leftColorPanel.Location = new Point(Convert.ToInt32(leftPanel.Width * .1),
-            Convert.ToInt32(leftPanel.Height * .1));
+                Convert.ToInt32(leftPanel.Height * .1));
             //Right1
             rightPanel.Height = Screen.GetWorkingArea(this).Height - 100;
             rightPanel.Width = Screen.GetWorkingArea(this).Width / 2;
@@ -62,8 +63,9 @@ namespace ColorProject
             //Right2
             rightLabel.Height = Convert.ToInt32(rightPanel.Height * .15);
             rightLabel.Width = Convert.ToInt32(rightPanel.Width * .8);
-            rightLabel.Location = new Point(Convert.ToInt32(rightPanel.Width * .1),
-            Convert.ToInt32(rightPanel.Height * .425));
+            rightLabel.Location = new Point(Convert.ToInt32(rightPanel.Width * .1), 
+                Convert.ToInt32(rightPanel.Height * .425));
+            this.Update();
         }
         private void topPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -78,9 +80,10 @@ namespace ColorProject
                 Color.Black, 1,
                 ButtonBorderStyle.Solid);
         }
-        private void topLabel_Paint(object sender, PaintEventArgs e)
+        private void topLabel_Click(object sender, EventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, topLabel.DisplayRectangle, Color.Black, ButtonBorderStyle.Solid);
+            topLabel.Text = colorOutput;
+            clickingTimer.Start();
         }
         private void leftPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -111,6 +114,14 @@ namespace ColorProject
                 {
                     clickedRightColor = true;
                 }
+            }
+            else if (clickedRightColor && clickedRightName && clickedRightNameColor)
+            {
+                clickingTimer.Stop();
+                Console.WriteLine(clickingTimer.Elapsed.Minutes);
+                this.Hide();
+                EndGame egform = new EndGame();
+                egform.Show();
             }
         }
         private void rightPanel_Paint(object sender, PaintEventArgs e)
@@ -153,6 +164,14 @@ namespace ColorProject
                 {
                     clickedRightNameColor = true;
                 }
+            }
+            else if (clickedRightColor && clickedRightName && clickedRightNameColor)
+            {
+                clickingTimer.Stop();
+                Console.WriteLine(clickingTimer.Elapsed.Minutes);
+                this.Hide();
+                EndGame egform = new EndGame();
+                egform.Show();
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace ColorProject
 {
-    partial class Form1
+    partial class Game
     {
         /// <summary>
         /// Required designer variable.
@@ -51,6 +51,7 @@
             // 
             // leftColorPanel
             // 
+            this.leftColorPanel.BackColor = System.Drawing.Color.Black;
             this.leftColorPanel.ForeColor = System.Drawing.Color.Black;
             this.leftColorPanel.Location = new System.Drawing.Point(9, 49);
             this.leftColorPanel.Name = "leftColorPanel";
@@ -102,10 +103,11 @@
             this.topLabel.Name = "topLabel";
             this.topLabel.Size = new System.Drawing.Size(261, 18);
             this.topLabel.TabIndex = 1;
+            this.topLabel.Text = "Click Here To Start";
             this.topLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.topLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.topLabel_Paint);
+            this.topLabel.Click += new System.EventHandler(this.topLabel_Click);
             // 
-            // Form1
+            // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -116,7 +118,7 @@
             this.Controls.Add(this.rightPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Game";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.leftPanel.ResumeLayout(false);
