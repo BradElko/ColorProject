@@ -105,7 +105,8 @@
             this.topLabel.TabIndex = 1;
             this.topLabel.Text = "Click Here To Start";
             this.topLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.topLabel.Click += new System.EventHandler(this.topLabel_Click);
+            this.topLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topLabel_MouseDown);
+            this.topLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.topLabel_MouseUp);
             // 
             // Game
             // 

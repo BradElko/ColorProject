@@ -61,10 +61,10 @@ namespace ColorProject
             rightPanel.Width = Screen.GetWorkingArea(this).Width / 2;
             rightPanel.Location = new Point(Screen.GetWorkingArea(this).Width / 2, 100);
             //Right2
-            rightLabel.Height = Convert.ToInt32(rightPanel.Height * .15);
+            rightLabel.Height = 80;
             rightLabel.Width = Convert.ToInt32(rightPanel.Width * .8);
-            rightLabel.Location = new Point(Convert.ToInt32(rightPanel.Width * .1), 
-                Convert.ToInt32(rightPanel.Height * .425));
+            rightLabel.Location = new Point(Convert.ToInt32(rightPanel.Width * .1),
+                (rightPanel.Height / 2) - 40);
             this.Update();
         }
         private void topPanel_Paint(object sender, PaintEventArgs e)
@@ -80,10 +80,30 @@ namespace ColorProject
                 Color.Black, 1,
                 ButtonBorderStyle.Solid);
         }
-        private void topLabel_Click(object sender, EventArgs e)
+        private void topLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            topLabel.Text = colorOutput;
-            clickingTimer.Start();
+            if (clickedRightColor && clickedRightName && clickedRightNameColor)
+            {
+                topLabel.ForeColor = Color.FromName(colorOutput);
+            }
+            else
+            {
+                topLabel.Text = colorOutput;
+                clickingTimer.Start();
+            }
+        }
+        private void topLabel_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (clickedRightColor && clickedRightName && clickedRightNameColor)
+            {
+                amountOfClicks++;
+                clickingTimer.Stop();
+                Console.WriteLine(clickingTimer.Elapsed.Minutes);
+                EndGame egform = new EndGame();
+                egform.Show();
+                this.Hide();
+                topLabel.ForeColor = Color.Black;
+            }
         }
         private void leftPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -104,24 +124,30 @@ namespace ColorProject
         }
         private void leftColorPanel_MouseUp(object sender, MouseEventArgs e)
         {
-            if (!clickedRightColor)
+            if (!clickedRightColor && topLabel.Text != "Click Here To Start")
             {
                 randomColor = r.Next(colors.Count);
                 string colorOutput2 = colors[randomColor];
-                leftColorPanel.BackColor = Color.FromName(colorOutput2);
-                amountOfClicks++;
+                while (colorOutput2 == leftColorPanel.BackColor.Name)
+                {
+                    randomColor = r.Next(colors.Count);
+                    colorOutput2 = colors[randomColor];
+                    if (colorOutput2 != leftColorPanel.BackColor.Name)
+                    {
+                        leftColorPanel.BackColor = Color.FromName(colorOutput2);
+                        amountOfClicks++;
+                        break;
+                    }
+                }
+                if (colorOutput2 != leftColorPanel.BackColor.Name)
+                {
+                    leftColorPanel.BackColor = Color.FromName(colorOutput2);
+                    amountOfClicks++;
+                }
                 if (Convert.ToString(leftColorPanel.BackColor.Name) == colorOutput)
                 {
                     clickedRightColor = true;
                 }
-            }
-            else if (clickedRightColor && clickedRightName && clickedRightNameColor)
-            {
-                clickingTimer.Stop();
-                Console.WriteLine(clickingTimer.Elapsed.Minutes);
-                this.Hide();
-                EndGame egform = new EndGame();
-                egform.Show();
             }
         }
         private void rightPanel_Paint(object sender, PaintEventArgs e)
@@ -143,12 +169,26 @@ namespace ColorProject
         }
         private void rightLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            if(!clickedRightName)
+            if(!clickedRightName && topLabel.Text != "Click Here To Start")
             {
                 randomColor = r.Next(colors.Count);
                 string colorOutput2 = colors[randomColor];
-                rightLabel.Text = colorOutput2;
-                amountOfClicks++;
+                while (colorOutput2 == rightLabel.Text)
+                {
+                    randomColor = r.Next(colors.Count);
+                    colorOutput2 = colors[randomColor];
+                    if (colorOutput2 != rightLabel.Text)
+                    {
+                        rightLabel.Text = colorOutput2;
+                        amountOfClicks++;
+                        break;
+                    }
+                }
+                if (colorOutput2 != rightLabel.Text)
+                {
+                    rightLabel.Text = colorOutput2;
+                    amountOfClicks++;
+                }
                 if (rightLabel.Text == colorOutput)
                 {
                     clickedRightName = true;
@@ -158,20 +198,26 @@ namespace ColorProject
             {
                 randomColor = r.Next(colors.Count);
                 string colorOutput2 = colors[randomColor];
-                rightLabel.ForeColor = Color.FromName(colorOutput2);
-                amountOfClicks++;
+                while (rightLabel.ForeColor == Color.FromName(colorOutput2))
+                {
+                    randomColor = r.Next(colors.Count);
+                    colorOutput2 = colors[randomColor];
+                    if (rightLabel.ForeColor != Color.FromName(colorOutput2))
+                    {
+                        rightLabel.ForeColor = Color.FromName(colorOutput2);
+                        amountOfClicks++;
+                        break;
+                    }
+                }
+                if (rightLabel.ForeColor != Color.FromName(colorOutput2))
+                {
+                    rightLabel.ForeColor = Color.FromName(colorOutput2);
+                    amountOfClicks++;
+                }
                 if (rightLabel.ForeColor.Name == colorOutput)
                 {
                     clickedRightNameColor = true;
                 }
-            }
-            else if (clickedRightColor && clickedRightName && clickedRightNameColor)
-            {
-                clickingTimer.Stop();
-                Console.WriteLine(clickingTimer.Elapsed.Minutes);
-                this.Hide();
-                EndGame egform = new EndGame();
-                egform.Show();
             }
         }
     }

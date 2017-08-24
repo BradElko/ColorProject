@@ -12,8 +12,18 @@ namespace ColorProject
 {
     public partial class EndGame : Form
     {
+        List<string> colors = new List<string>();
+        Random r = new Random();
+        int randomColor;
+        string colorOutput;
         public EndGame()
         {
+            colors.Add("Red");
+            colors.Add("Orange");
+            colors.Add("Yellow");
+            colors.Add("Green");
+            colors.Add("Blue");
+            colors.Add("Purple");
             InitializeComponent();
         }
         private void EndGame_Load(object sender, EventArgs e)
@@ -108,11 +118,17 @@ namespace ColorProject
                 Color.Black, 2,
                 ButtonBorderStyle.Solid);
         }
-        private void bottomLeftLabel_Click(object sender, EventArgs e)
+        private void bottomLeftLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            this.Hide();
+            randomColor = r.Next(colors.Count);
+            colorOutput = colors[randomColor];
+            bottomLeftLabel.ForeColor = Color.FromName(colorOutput);
+        }
+        private void bottomLeftLabel_MouseUp(object sender, MouseEventArgs e)
+        {
             Game gform = new ColorProject.Game();
             gform.Show();
+            this.Hide();
         }
         private void bottomRightPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -127,9 +143,15 @@ namespace ColorProject
                 Color.Black, 2,
                 ButtonBorderStyle.Solid);
         }
-        private void bottomRightLabel_Click(object sender, EventArgs e)
+        private void bottomRightLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            this.Close();
+            randomColor = r.Next(colors.Count);
+            colorOutput = colors[randomColor];
+            bottomRightLabel.ForeColor = Color.FromName(colorOutput);
+        }
+        private void bottomRightLabel_MouseUp(object sender, MouseEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

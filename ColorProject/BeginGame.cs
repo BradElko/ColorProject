@@ -120,9 +120,9 @@ namespace ColorProject
         }
         private void bottomLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            this.Hide();
             Game gform = new Game();
             gform.Show();
+            this.Hide();
         }
     }
 }

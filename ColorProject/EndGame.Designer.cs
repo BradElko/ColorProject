@@ -85,7 +85,8 @@
             this.bottomLeftLabel.TabIndex = 0;
             this.bottomLeftLabel.Text = "Play Again?";
             this.bottomLeftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bottomLeftLabel.Click += new System.EventHandler(this.bottomLeftLabel_Click);
+            this.bottomLeftLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bottomLeftLabel_MouseDown);
+            this.bottomLeftLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bottomLeftLabel_MouseUp);
             // 
             // bottomRightLabel
             // 
@@ -96,7 +97,8 @@
             this.bottomRightLabel.TabIndex = 1;
             this.bottomRightLabel.Text = "Exit";
             this.bottomRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bottomRightLabel.Click += new System.EventHandler(this.bottomRightLabel_Click);
+            this.bottomRightLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bottomRightLabel_MouseDown);
+            this.bottomRightLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bottomRightLabel_MouseUp);
             // 
             // bottomRightPanel
             // 
