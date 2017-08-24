@@ -1,0 +1,160 @@
+/*
+* Name: Bradley Elko
+* Date: 8/23/2017
+* Proj: Color Clicker
+* Prog: CSS
+*/
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#tp1{
+    border-width:2px 2px 1px 2px;
+    border-color:black;
+    border-style:solid;
+}
+#tp2{
+    border-width:2px 2px 1px 2px;
+    border-color:black;
+    border-style:solid; 
+}
+#tp3{
+    border-width:2px 2px 1px 2px;
+    border-color:black;
+    border-style:solid; 
+}
+.topPanel{
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:100px;
+    width:100%;
+}
+.topLabel{
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    text-align:center;
+    font-family:Arial;
+    font-size:36px;
+    line-height:100px;
+}
+#mp3{
+    border-width:1px 2px 1px 2px;
+    border-color:black;
+    border-style:solid; 
+}
+.middlePanel{
+    position:absolute;
+    top:100px;
+    left:0px;
+    height:calc(100% - 200px);
+    width:100%;
+}
+#lp1{
+    border-width:1px 1px 1px 2px;
+    border-color:black;
+    border-style:solid;
+}
+#lp2{
+    height:calc(100% - 100px);
+    width:50%;
+    border-width:1px 1px 2px 2px;
+    border-color:black;
+    border-style:solid; 
+}
+.leftPanel{
+    position:absolute;
+    top:100px;
+    left:0px;
+    height:calc(100% - 200px);
+    width:50%;
+}
+#lcp2{
+    position:absolute;
+    height:80%;
+    width:80%;
+    top:10%;
+    left:10%;
+    border:1px solid black;
+    background-color:black;
+}
+#rp1{
+    border-width:1px 2px 1px 1px;
+    border-color:black;
+    border-style:solid;
+}
+#rp2{
+    border-width:1px 2px 2px 1px;
+    border-color:black;
+    border-style:solid;
+    height:calc(100% - 100px);
+    width:50%;
+}
+.rightPanel{
+    position:absolute;
+    top:100px;
+    left:50%;
+    height:calc(100% - 200px);
+    width:50%;
+}
+#rl2{
+    position:absolute;
+    width:80%;
+    height:80px;
+    top:calc(50% - 40px);
+    left:10%;
+    border:1px solid black;
+    line-height:80px;
+    text-align:center;
+    font-family:Arial;
+    font-size:36px;
+}
+#bp1{
+    border-width:1px 2px 2px 2px;
+    border-color:black;
+    border-style:solid;
+}
+#bp3{
+    border-width:1px 2px 2px 2px;
+    border-color:black;
+    border-style:solid;
+}
+.bottomPanel{
+    position:absolute;
+    top:calc(100% - 100px);
+    left:0px;
+    height:100px;
+    width:100%;
+}
+.bottomLabel{
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    text-align:center;
+    font-family:Arial;
+    font-size:36px;
+    line-height:100px;
+}
+#Link1{
+    text-decoration:none;
+}
+#Link1:visited{
+    color:inherit;
+}
+#Link3{
+    text-decoration:none;
+}
+#Link3:visited{
+    color:inherit;
+}
