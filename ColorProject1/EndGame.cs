@@ -37,10 +37,9 @@ namespace ColorProject
             topPanel.Width = Screen.GetWorkingArea(this).Width;
             topPanel.Location = new Point(0, 0);
             //Top2
-            topLabel.Height = Convert.ToInt32(topPanel.Height * .8);
-            topLabel.Width = Convert.ToInt32(topPanel.Width * .9);
-            topLabel.Location = new Point(Convert.ToInt32(topPanel.Width * .05),
-                Convert.ToInt32(topPanel.Height * .1));
+            topLabel.Height = topPanel.Height - 3;
+            topLabel.Width = topPanel.Width - 4;
+            topLabel.Location = new Point(2, 2);
             //Middle1
             middlePanel.Height = Screen.GetWorkingArea(this).Height - 200;
             middlePanel.Width = Screen.GetWorkingArea(this).Width;
@@ -50,20 +49,18 @@ namespace ColorProject
             bottomLeftPanel.Width = Screen.GetWorkingArea(this).Width/2;
             bottomLeftPanel.Location = new Point(0, Screen.GetWorkingArea(this).Height - 100);
             //BottomLeft2
-            bottomLeftLabel.Height = Convert.ToInt32(bottomLeftPanel.Height * .8);
-            bottomLeftLabel.Width = Convert.ToInt32(bottomLeftPanel.Width * .9);
-            bottomLeftLabel.Location = new Point(Convert.ToInt32(bottomLeftPanel.Width * .05),
-                Convert.ToInt32(bottomLeftPanel.Height * .1));
+            bottomLeftLabel.Height = bottomLeftPanel.Height - 3;
+            bottomLeftLabel.Width = bottomLeftPanel.Width - 4;
+            bottomLeftLabel.Location = new Point(2, 2);
             //BottomRight1
             bottomRightPanel.Height = 100;
             bottomRightPanel.Width = Screen.GetWorkingArea(this).Width/2;
             bottomRightPanel.Location = new Point(Screen.GetWorkingArea(this).Width / 2, 
                 Screen.GetWorkingArea(this).Height - 100);
             //BottomRight2
-            bottomRightLabel.Height = Convert.ToInt32(bottomRightPanel.Height * .8);
-            bottomRightLabel.Width = Convert.ToInt32(bottomRightPanel.Width * .9);
-            bottomRightLabel.Location = new Point(Convert.ToInt32(bottomRightPanel.Width * .05),
-                Convert.ToInt32(bottomRightPanel.Height * .1));
+            bottomRightLabel.Height = bottomRightPanel.Height - 3;
+            bottomRightLabel.Width = bottomRightPanel.Width - 4;
+            bottomRightLabel.Location = new Point(2, 2);
             this.Update();
         }
         private void topPanel_Paint(object sender, PaintEventArgs e)

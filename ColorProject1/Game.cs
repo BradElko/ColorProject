@@ -16,7 +16,7 @@ namespace ColorProject
         bool clickedRightColor, clickedRightName, clickedRightNameColor;
         List<string> colors = new List<string>();
         Random r = new Random();
-        int randomColor, amountOfClicks;
+        int randomColor, accurateClicks;
         string colorOutput;
         System.Diagnostics.Stopwatch clickingTimer = new System.Diagnostics.Stopwatch();
         public Game()
@@ -29,7 +29,7 @@ namespace ColorProject
             colors.Add("Purple");
             randomColor = r.Next(colors.Count);
             colorOutput = colors[randomColor];
-            amountOfClicks = 0;
+            accurateClicks = 0;
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -43,10 +43,9 @@ namespace ColorProject
             topPanel.Width = Screen.GetWorkingArea(this).Width;
             topPanel.Location = new Point(0, 0);
             //Top2
-            topLabel.Height = Convert.ToInt32(topPanel.Height * .8);
-            topLabel.Width = Convert.ToInt32(topPanel.Width * .9);
-            topLabel.Location = new Point(Convert.ToInt32(topPanel.Width * .05),
-                Convert.ToInt32(topPanel.Height * .1));
+            topLabel.Height = topPanel.Height - 3;
+            topLabel.Width = topPanel.Width - 4;
+            topLabel.Location = new Point(2, 2);
             //Left1
             leftPanel.Height = Screen.GetWorkingArea(this).Height - 100;
             leftPanel.Width = Screen.GetWorkingArea(this).Width / 2;
@@ -96,7 +95,7 @@ namespace ColorProject
         {
             if (clickedRightColor && clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
             {
-                amountOfClicks++;
+                accurateClicks++;
                 clickingTimer.Stop();
                 Console.WriteLine(clickingTimer.Elapsed.Minutes);
                 EndGame egform = new EndGame();
@@ -135,14 +134,14 @@ namespace ColorProject
                     if (colorOutput2 != leftColorPanel.BackColor.Name)
                     {
                         leftColorPanel.BackColor = Color.FromName(colorOutput2);
-                        amountOfClicks++;
+                        accurateClicks++;
                         break;
                     }
                 }
                 if (colorOutput2 != leftColorPanel.BackColor.Name)
                 {
                     leftColorPanel.BackColor = Color.FromName(colorOutput2);
-                    amountOfClicks++;
+                    accurateClicks++;
                 }
                 if (Convert.ToString(leftColorPanel.BackColor.Name) == colorOutput)
                 {
@@ -180,14 +179,14 @@ namespace ColorProject
                     if (colorOutput2 != rightLabel.Text)
                     {
                         rightLabel.Text = colorOutput2;
-                        amountOfClicks++;
+                        accurateClicks++;
                         break;
                     }
                 }
                 if (colorOutput2 != rightLabel.Text)
                 {
                     rightLabel.Text = colorOutput2;
-                    amountOfClicks++;
+                    accurateClicks++;
                 }
                 if (rightLabel.Text == colorOutput)
                 {
@@ -205,14 +204,14 @@ namespace ColorProject
                     if (rightLabel.ForeColor != Color.FromName(colorOutput2))
                     {
                         rightLabel.ForeColor = Color.FromName(colorOutput2);
-                        amountOfClicks++;
+                        accurateClicks++;
                         break;
                     }
                 }
                 if (rightLabel.ForeColor != Color.FromName(colorOutput2))
                 {
                     rightLabel.ForeColor = Color.FromName(colorOutput2);
-                    amountOfClicks++;
+                    accurateClicks++;
                 }
                 if (rightLabel.ForeColor.Name == colorOutput)
                 {
