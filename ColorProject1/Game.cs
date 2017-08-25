@@ -82,11 +82,11 @@ namespace ColorProject
         }
         private void topLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            if (clickedRightColor && clickedRightName && clickedRightNameColor)
+            if (clickedRightColor && clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
             {
                 topLabel.ForeColor = Color.FromName(colorOutput);
             }
-            else
+            else if(!clickedRightColor && !clickedRightName && !clickedRightNameColor && e.Button == MouseButtons.Left)
             {
                 topLabel.Text = colorOutput;
                 clickingTimer.Start();
@@ -94,7 +94,7 @@ namespace ColorProject
         }
         private void topLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            if (clickedRightColor && clickedRightName && clickedRightNameColor)
+            if (clickedRightColor && clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
             {
                 amountOfClicks++;
                 clickingTimer.Stop();
@@ -124,7 +124,7 @@ namespace ColorProject
         }
         private void leftColorPanel_MouseUp(object sender, MouseEventArgs e)
         {
-            if (!clickedRightColor && topLabel.Text != "Click Here To Start")
+            if (!clickedRightColor && topLabel.Text != "Click Here To Start" && e.Button == MouseButtons.Left)
             {
                 randomColor = r.Next(colors.Count);
                 string colorOutput2 = colors[randomColor];
@@ -169,7 +169,7 @@ namespace ColorProject
         }
         private void rightLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            if(!clickedRightName && topLabel.Text != "Click Here To Start")
+            if(!clickedRightName && topLabel.Text != "Click Here To Start" && e.Button == MouseButtons.Left)
             {
                 randomColor = r.Next(colors.Count);
                 string colorOutput2 = colors[randomColor];
@@ -194,7 +194,7 @@ namespace ColorProject
                     clickedRightName = true;
                 }
             }
-            else if(clickedRightName && !clickedRightNameColor)
+            else if(clickedRightName && !clickedRightNameColor && e.Button == MouseButtons.Left)
             {
                 randomColor = r.Next(colors.Count);
                 string colorOutput2 = colors[randomColor];

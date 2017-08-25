@@ -45,3 +45,14 @@ H:\SEWD1\C#\Projects\ColorProject1\obj\Debug\ColorProject.Game.resources
 H:\SEWD1\C#\Projects\ColorProject1\obj\Debug\ColorProject.EndGame.resources
 H:\SEWD1\C#\Projects\ColorProject1\obj\Debug\ColorProject.Properties.Resources.resources
 H:\SEWD1\C#\Projects\ColorProject1\obj\Debug\ColorProject.csproj.GenerateResource.Cache
+C:\Users\Uvozi\Documents\ColorProject1\bin\Debug\ColorProject.exe.config
+C:\Users\Uvozi\Documents\ColorProject1\obj\Debug\ColorProject.exe
+C:\Users\Uvozi\Documents\ColorProject1\obj\Debug\ColorProject.pdb
+C:\Users\Uvozi\Documents\ColorProject1\bin\Debug\ColorProject.exe
+C:\Users\Uvozi\Documents\ColorProject1\bin\Debug\ColorProject.pdb
+C:\Users\Uvozi\Documents\ColorProject1\obj\Debug\ColorProject.csprojResolveAssemblyReference.cache
+C:\Users\Uvozi\Documents\ColorProject1\obj\Debug\ColorProject.BeginGame.resources
+C:\Users\Uvozi\Documents\ColorProject1\obj\Debug\ColorProject.Game.resources
+C:\Users\Uvozi\Documents\ColorProject1\obj\Debug\ColorProject.EndGame.resources
+C:\Users\Uvozi\Documents\ColorProject1\obj\Debug\ColorProject.Properties.Resources.resources
+C:\Users\Uvozi\Documents\ColorProject1\obj\Debug\ColorProject.csproj.GenerateResource.Cache

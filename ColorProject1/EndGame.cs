@@ -120,15 +120,21 @@ namespace ColorProject
         }
         private void bottomLeftLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            randomColor = r.Next(colors.Count);
-            colorOutput = colors[randomColor];
-            bottomLeftLabel.ForeColor = Color.FromName(colorOutput);
+            if (e.Button == MouseButtons.Left)
+            {
+                randomColor = r.Next(colors.Count);
+                colorOutput = colors[randomColor];
+                bottomLeftLabel.ForeColor = Color.FromName(colorOutput);
+            }
         }
         private void bottomLeftLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            Game gform = new ColorProject.Game();
-            gform.Show();
-            this.Hide();
+            if (e.Button == MouseButtons.Left)
+            {
+                Game gform = new ColorProject.Game();
+                gform.Show();
+                this.Hide();
+            }
         }
         private void bottomRightPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -145,13 +151,19 @@ namespace ColorProject
         }
         private void bottomRightLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            randomColor = r.Next(colors.Count);
-            colorOutput = colors[randomColor];
-            bottomRightLabel.ForeColor = Color.FromName(colorOutput);
+            if (e.Button == MouseButtons.Left)
+            {
+                randomColor = r.Next(colors.Count);
+                colorOutput = colors[randomColor];
+                bottomRightLabel.ForeColor = Color.FromName(colorOutput);
+            }
         }
         private void bottomRightLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            if (e.Button == MouseButtons.Left)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
         }
     }
 }

@@ -114,15 +114,21 @@ namespace ColorProject
         }
         private void bottomLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            randomColor = r.Next(colors.Count);
-            colorOutput = colors[randomColor];
-            bottomLabel.ForeColor = Color.FromName(colorOutput);
+            if(e.Button == MouseButtons.Left)
+            {
+                randomColor = r.Next(colors.Count);
+                colorOutput = colors[randomColor];
+                bottomLabel.ForeColor = Color.FromName(colorOutput);
+            }
         }
         private void bottomLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            Game gform = new Game();
-            gform.Show();
-            this.Hide();
+            if (e.Button == MouseButtons.Left)
+            {
+                Game gform = new Game();
+                gform.Show();
+                this.Hide();
+            }
         }
     }
 }
