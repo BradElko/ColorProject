@@ -48,10 +48,12 @@
             this.leftPanel.Size = new System.Drawing.Size(210, 179);
             this.leftPanel.TabIndex = 0;
             this.leftPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.leftPanel_Paint);
+            this.leftPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.leftPanel_MouseUp);
             // 
             // leftColorPanel
             // 
             this.leftColorPanel.BackColor = System.Drawing.Color.Black;
+            this.leftColorPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.leftColorPanel.ForeColor = System.Drawing.Color.Black;
             this.leftColorPanel.Location = new System.Drawing.Point(9, 49);
             this.leftColorPanel.Name = "leftColorPanel";
@@ -69,9 +71,11 @@
             this.rightPanel.Size = new System.Drawing.Size(184, 130);
             this.rightPanel.TabIndex = 1;
             this.rightPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.rightPanel_Paint);
+            this.rightPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.rightPanel_MouseUp);
             // 
             // rightLabel
             // 
+            this.rightLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rightLabel.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rightLabel.ForeColor = System.Drawing.Color.Black;
             this.rightLabel.Location = new System.Drawing.Point(12, 29);
@@ -93,10 +97,12 @@
             this.topPanel.Size = new System.Drawing.Size(361, 32);
             this.topPanel.TabIndex = 1;
             this.topPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.topPanel_Paint);
+            this.topPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseUp);
             // 
             // topLabel
             // 
             this.topLabel.BackColor = System.Drawing.Color.White;
+            this.topLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.topLabel.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topLabel.ForeColor = System.Drawing.Color.Black;
             this.topLabel.Location = new System.Drawing.Point(40, 0);

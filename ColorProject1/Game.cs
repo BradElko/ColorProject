@@ -13,12 +13,12 @@ namespace ColorProject
 {
     public partial class Game : Form
     {
-        bool clickedRightColor, clickedRightName, clickedRightNameColor;
+        bool clockStarted, clickedRightColor, clickedRightName, clickedRightNameColor;
         List<string> colors = new List<string>();
         Random r = new Random();
-        int randomColor, accurateClicks;
+        public static int randomColor, accurateClicks, inaccurateClicks;
         string colorOutput;
-        System.Diagnostics.Stopwatch clickingTimer = new System.Diagnostics.Stopwatch();
+        public static System.Diagnostics.Stopwatch clickingTimer = new System.Diagnostics.Stopwatch();
         public Game()
         {
             colors.Add("Red");
@@ -29,7 +29,6 @@ namespace ColorProject
             colors.Add("Purple");
             randomColor = r.Next(colors.Count);
             colorOutput = colors[randomColor];
-            accurateClicks = 0;
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -66,6 +65,10 @@ namespace ColorProject
                 (rightPanel.Height / 2) - 40);
             this.Update();
         }
+        private void topPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            inaccurateClicks++;
+        }
         private void topPanel_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics,
@@ -85,24 +88,38 @@ namespace ColorProject
             {
                 topLabel.ForeColor = Color.FromName(colorOutput);
             }
-            else if(!clickedRightColor && !clickedRightName && !clickedRightNameColor && e.Button == MouseButtons.Left)
-            {
-                topLabel.Text = colorOutput;
-                clickingTimer.Start();
-            }
         }
         private void topLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            if (clickedRightColor && clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
+            if(!clockStarted && !clickedRightColor && !clickedRightName && !clickedRightNameColor && e.Button == MouseButtons.Left)
+            {
+                topLabel.Text = colorOutput;
+                accurateClicks = 0;
+                inaccurateClicks = 0;
+                clickingTimer.Start();
+                clockStarted = true;
+            }
+            else if (clickedRightColor && clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
             {
                 accurateClicks++;
                 clickingTimer.Stop();
-                Console.WriteLine(clickingTimer.Elapsed.Minutes);
+                Console.WriteLine("Score: " + (clickingTimer.Elapsed.Seconds + inaccurateClicks + accurateClicks) +
+                    "\nTime: " + clickingTimer.Elapsed.Seconds + 
+                    "\nBad Clicks: " + inaccurateClicks + 
+                    "\nGood Clicks: " + accurateClicks);
                 EndGame egform = new EndGame();
                 egform.Show();
                 this.Hide();
                 topLabel.ForeColor = Color.Black;
             }
+            else
+            {
+                inaccurateClicks++;
+            }
+        }
+        private void leftPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            inaccurateClicks++;
         }
         private void leftPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -146,8 +163,17 @@ namespace ColorProject
                 if (Convert.ToString(leftColorPanel.BackColor.Name) == colorOutput)
                 {
                     clickedRightColor = true;
+                    leftColorPanel.Cursor = Cursors.Default;
                 }
             }
+            else if (clickedRightColor && e.Button == MouseButtons.Left)
+            {
+                inaccurateClicks++;
+            }
+        }
+        private void rightPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            inaccurateClicks++;
         }
         private void rightPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -216,7 +242,12 @@ namespace ColorProject
                 if (rightLabel.ForeColor.Name == colorOutput)
                 {
                     clickedRightNameColor = true;
+                    rightLabel.Cursor = Cursors.Default;
                 }
+            }
+            else if (clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
+            {
+                inaccurateClicks++;
             }
         }
     }

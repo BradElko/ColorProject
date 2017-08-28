@@ -84,6 +84,7 @@
             // 
             // bottomLabel
             // 
+            this.bottomLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bottomLabel.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bottomLabel.Location = new System.Drawing.Point(36, 21);
             this.bottomLabel.Name = "bottomLabel";
