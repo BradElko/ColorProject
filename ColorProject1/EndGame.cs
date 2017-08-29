@@ -33,59 +33,65 @@ namespace ColorProject
             this.Location = new Point(0, 0);
             this.Width = Screen.GetWorkingArea(this).Width;
             this.Height = Screen.GetWorkingArea(this).Height;
-            //Top1
+            //Top Panel
             topPanel.Height = 100;
             topPanel.Width = Screen.GetWorkingArea(this).Width;
             topPanel.Location = new Point(0, 0);
-            //Top2
+            //Top Label
             topLabel.Height = topPanel.Height - 3;
             topLabel.Width = topPanel.Width - 4;
             topLabel.Location = new Point(2, 2);
-            //Middle1
+            //Middle Panel
             middlePanel.Height = Screen.GetWorkingArea(this).Height - 200;
             middlePanel.Width = Screen.GetWorkingArea(this).Width;
             middlePanel.Location = new Point(0, 100);
-            //Middle2
+            //Middle Label 1
             middleLabel1.Height = (middlePanel.Height / 5) - 1;
             middleLabel1.Width = middlePanel.Width - 4;
             middleLabel1.Location = new Point(2, 1);
+            //Middle Label 2
             middleLabel2.Height = middlePanel.Height / 5;
             middleLabel2.Width = middlePanel.Width - 4;
             middleLabel2.Location = new Point(2, (middlePanel.Height / 5) + 1);
-            middleLabel2.Text = "Time (Seconds): " + Game.clickingTimer.Elapsed.Seconds;
+            middleLabel2.Text = "Time (Seconds): " + Game.seconds;
+            //Middle Label 3
             middleLabel3.Height = middlePanel.Height / 5;
             middleLabel3.Width = middlePanel.Width - 4;
             middleLabel3.Location = new Point(2, 2 * (middlePanel.Height / 5) + 1);
             middleLabel3.Text = "Accurate Clicks: " + Game.accurateClicks;
+            //Middle Label 4
             middleLabel4.Height = (middlePanel.Height / 5);
             middleLabel4.Width = middlePanel.Width - 4;
             middleLabel4.Location = new Point(2, 3 * (middlePanel.Height / 5) + 1);
             middleLabel4.Text = "Inaccurate Clicks: " + Game.inaccurateClicks;
+            //Middle Label 5
             middleLabel5.Height = (middlePanel.Height / 5) - 1;
             middleLabel5.Width = middlePanel.Width - 4;
             middleLabel5.Location = new Point(2, 4 * (middlePanel.Height / 5) + 1);
             middleLabel5.Text = "Score: " + (Game.clickingTimer.Elapsed.Seconds + Game.accurateClicks + Game.inaccurateClicks);
-            //BottomLeft1
+            //Bottom Left Panel
             bottomLeftPanel.Height = 100;
             bottomLeftPanel.Width = Screen.GetWorkingArea(this).Width/2;
             bottomLeftPanel.Location = new Point(0, Screen.GetWorkingArea(this).Height - 100);
-            //BottomLeft2
+            //Bottom Left Label
             bottomLeftLabel.Height = bottomLeftPanel.Height - 3;
             bottomLeftLabel.Width = bottomLeftPanel.Width - 4;
             bottomLeftLabel.Location = new Point(2, 2);
-            //BottomRight1
+            //Bottom Right Panel
             bottomRightPanel.Height = 100;
             bottomRightPanel.Width = Screen.GetWorkingArea(this).Width/2;
             bottomRightPanel.Location = new Point(Screen.GetWorkingArea(this).Width / 2, 
                 Screen.GetWorkingArea(this).Height - 100);
-            //BottomRight2
+            //Bottom Right Label
             bottomRightLabel.Height = bottomRightPanel.Height - 3;
             bottomRightLabel.Width = bottomRightPanel.Width - 4;
             bottomRightLabel.Location = new Point(2, 2);
+            //Form Update
             this.Update();
         }
         private void topPanel_Paint(object sender, PaintEventArgs e)
         {
+            //Top Panel Black Border.
             ControlPaint.DrawBorder(e.Graphics,
                 topPanel.ClientRectangle,
                 Color.Black, 2,
@@ -99,6 +105,7 @@ namespace ColorProject
         }
         private void middlePanel_Paint(object sender, PaintEventArgs e)
         {
+            //Middle Panel Black Border.
             ControlPaint.DrawBorder(e.Graphics,
                 middlePanel.ClientRectangle,
                 Color.Black, 2,
@@ -112,6 +119,7 @@ namespace ColorProject
         }
         private void bottomLeftPanel_Paint(object sender, PaintEventArgs e)
         {
+            //Bottom Left Panel Black Border.
             ControlPaint.DrawBorder(e.Graphics,
                 bottomLeftPanel.ClientRectangle,
                 Color.Black, 2,
@@ -123,25 +131,9 @@ namespace ColorProject
                 Color.Black, 2,
                 ButtonBorderStyle.Solid);
         }
-        private void bottomLeftLabel_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                randomColor = r.Next(colors.Count);
-                colorOutput = colors[randomColor];
-                bottomLeftLabel.ForeColor = Color.FromName(colorOutput);
-            }
-        }
-        private void bottomLeftLabel_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                gform.Show();
-                this.Hide();
-            }
-        }
         private void bottomRightPanel_Paint(object sender, PaintEventArgs e)
         {
+            //bottom Right Panel Black Border.
             ControlPaint.DrawBorder(e.Graphics,
                 bottomRightPanel.ClientRectangle,
                 Color.Black, 1,
@@ -153,10 +145,41 @@ namespace ColorProject
                 Color.Black, 2,
                 ButtonBorderStyle.Solid);
         }
-        private void bottomRightLabel_MouseDown(object sender, MouseEventArgs e)
+        private void bottomLeftLabel_MouseDown(object sender, MouseEventArgs e)
         {
+            //If left-clicked (Mouse Down) the Bottom Left Label...
             if (e.Button == MouseButtons.Left)
             {
+                /* Chooses a color from the list.
+                 * Makes the Bottom Left Label Color into the Selected Color.
+                */ 
+                randomColor = r.Next(colors.Count);
+                colorOutput = colors[randomColor];
+                bottomLeftLabel.ForeColor = Color.FromName(colorOutput);
+            }
+        }
+        private void bottomLeftLabel_MouseUp(object sender, MouseEventArgs e)
+        {
+            //If left-clicked (Mouse Up) the Bottom Left Label...
+            if (e.Button == MouseButtons.Left)
+            {
+                /* Changes the Bottom Left Label Color to Black.
+                 * Shows the Game Form.
+                 * Closes this Form.
+                */
+                bottomLeftLabel.ForeColor = Color.Black;
+                gform.Show();
+                this.Hide();
+            }
+        }
+        private void bottomRightLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            //If left-clicked (Mouse Down) the Bottom Right Label...
+            if (e.Button == MouseButtons.Left)
+            {
+                /* Chooses a color from the list.
+                 * Makes the Bottom Right Label Color into the Selected Color.
+                */
                 randomColor = r.Next(colors.Count);
                 colorOutput = colors[randomColor];
                 bottomRightLabel.ForeColor = Color.FromName(colorOutput);
@@ -164,8 +187,13 @@ namespace ColorProject
         }
         private void bottomRightLabel_MouseUp(object sender, MouseEventArgs e)
         {
+            //If left-clicked (Mouse Up) the Bottom Right Label...
             if (e.Button == MouseButtons.Left)
             {
+                /* Changes the Bottom Right Label Color to Black.
+                 * Ends Program.
+                */
+                bottomRightLabel.ForeColor = Color.Black;
                 System.Windows.Forms.Application.Exit();
             }
         }
