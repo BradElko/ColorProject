@@ -72,6 +72,61 @@ body{
     font-size:36px;
     line-height:100px;
 }
+#mlone3{
+    position:absolute;
+    top:0%;
+    left:0%;
+    height:20%;
+    width:100%;
+    text-align:center;
+    font-family:Arial;
+    font-size:30px;
+    line-height:3em;
+}
+#mltwo3{
+    position:absolute;
+    top:20%;
+    left:0%;
+    width:100%;
+    height:20%;
+    text-align:center;
+    font-family:"Arial Narrow";
+    font-size:24px;
+    line-height:3.5em;
+}
+#mlthree3{
+    position:absolute;
+    top:40%;
+    left:0%;
+    width:100%;
+    height:20%;
+    text-align:center;
+    font-family:"Arial Narrow";
+    font-size:24px;
+    line-height:3.5em;
+}
+#mlfour3{
+    position:absolute;
+    top:60%;
+    left:0%;
+    width:100%;
+    height:20%;
+    text-align:center;
+    font-family:"Arial Narrow";
+    font-size:24px;
+    line-height:3.5em;
+}
+#mlfive3{
+    position:absolute;
+    top:80%;
+    left:0%;
+    width:100%;
+    height:20%;
+    text-align:center;
+    font-family:"Arial Narrow";
+    font-size:24px;
+    line-height:3.5em;
+}
 #mp3{
     border-width:1px 2px 1px 2px;
     border-color:black;
@@ -83,6 +138,31 @@ body{
     left:0px;
     height:calc(100% - 200px);
     width:100%;
+}
+#ll1{
+    position:absolute;
+    top:0%;
+    left:0%;
+    height:20%;
+    width:100%;
+    font-family:Arial;
+    font-size:30px;
+    text-align:center;
+    line-height:3em;
+}
+#lt1{
+    position:absolute;
+    top:20%;
+    left:10%;
+    width:80%;
+    height:60%;
+    resize:none;
+    overflow-y:scroll;
+    border:1px solid black;
+    outline:none;
+    font-family:"Arial Narrow";
+    font-size:18px;
+    text-align:left;
 }
 #lp1{
     border-width:1px 1px 1px 2px;
@@ -111,6 +191,32 @@ body{
     left:10%;
     border:1px solid black;
     background-color:black;
+}
+#rl1{
+    position:absolute;
+    display:table-cell;
+    top:0%;
+    left:0%;
+    height:20%;
+    width:100%;
+    font-family:Arial;
+    font-size:30px;
+    text-align:center;
+    line-height:3em;
+}
+#rt1{
+    position:absolute;
+    top:20%;
+    left:10%;
+    width:80%;
+    height:60%;
+    resize:none;
+    overflow-y:scroll;
+    border:1px solid black;
+    outline:none;
+    font-family:"Arial Narrow";
+    font-size:18px;
+    text-align:center;
 }
 #rp1{
     border-width:1px 2px 1px 1px;
