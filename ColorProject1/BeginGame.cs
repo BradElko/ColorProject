@@ -44,10 +44,26 @@ namespace ColorProject
             leftPanel.Height = Screen.GetWorkingArea(this).Height - 200;
             leftPanel.Width = Screen.GetWorkingArea(this).Width / 2;
             leftPanel.Location = new Point(0, 100);
+            //Left2
+            leftLabel.Height = leftPanel.Height / 5;
+            leftLabel.Width = leftPanel.Width - 4;
+            leftLabel.Location = new Point(2, 1);
+            rightTextbox.Height = Convert.ToInt16(leftPanel.Height * .6);
+            rightTextbox.Width = Convert.ToInt16(leftPanel.Width * .8);
+            rightTextbox.Location = new Point(Convert.ToInt16(leftPanel.Width * .1),
+                Convert.ToInt16(leftPanel.Height * .2) + 1);
             //Right1
             rightPanel.Height = Screen.GetWorkingArea(this).Height - 200;
             rightPanel.Width = Screen.GetWorkingArea(this).Width / 2;
             rightPanel.Location = new Point(Screen.GetWorkingArea(this).Width / 2, 100);
+            //Right2
+            rightLabel.Height = rightPanel.Height / 5;
+            rightLabel.Width = rightPanel.Width - 4;
+            rightLabel.Location = new Point(2, 1);
+            leftTextbox.Height = Convert.ToInt16(rightPanel.Height * .6);
+            leftTextbox.Width = Convert.ToInt16(rightPanel.Width * .8);
+            leftTextbox.Location = new Point(Convert.ToInt16(rightPanel.Width * .1),
+                Convert.ToInt16(rightPanel.Height * .2) + 1);
             //Bottom1
             bottomPanel.Height = 100;
             bottomPanel.Width = Screen.GetWorkingArea(this).Width;

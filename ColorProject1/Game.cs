@@ -93,6 +93,7 @@ namespace ColorProject
         {
             if(!clockStarted && !clickedRightColor && !clickedRightName && !clickedRightNameColor && e.Button == MouseButtons.Left)
             {
+                System.Windows.Forms.Clipboard.Clear();
                 topLabel.Text = colorOutput;
                 accurateClicks = 0;
                 inaccurateClicks = 0;
@@ -102,11 +103,8 @@ namespace ColorProject
             else if (clickedRightColor && clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
             {
                 accurateClicks++;
+                System.Windows.Forms.Clipboard.Clear();
                 clickingTimer.Stop();
-                Console.WriteLine("Score: " + (clickingTimer.Elapsed.Seconds + inaccurateClicks + accurateClicks) +
-                    "\nTime: " + clickingTimer.Elapsed.Seconds + 
-                    "\nBad Clicks: " + inaccurateClicks + 
-                    "\nGood Clicks: " + accurateClicks);
                 EndGame egform = new EndGame();
                 egform.Show();
                 this.Hide();
@@ -218,6 +216,7 @@ namespace ColorProject
                 {
                     clickedRightName = true;
                 }
+                System.Windows.Forms.Clipboard.Clear();
             }
             else if(clickedRightName && !clickedRightNameColor && e.Button == MouseButtons.Left)
             {
@@ -244,6 +243,7 @@ namespace ColorProject
                     clickedRightNameColor = true;
                     rightLabel.Cursor = Cursors.Default;
                 }
+                System.Windows.Forms.Clipboard.Clear();
             }
             else if (clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
             {

@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="rightTextbox.Text" xml:space="preserve">
+    <value>1. Click, "Click Here To Start" to start the game with a color name at the top.
+2. Click the left box until the color matches the color name at the top.
+3. Click the right box until the color name matches with your color name at the top.
+4. Once the name in the right box is the same as the color at the top, click the name in the right box until the color is the same as the color name at the top. 
+5. If everything matches the color at the top, click the color at the top to win the game.</value>
+  </data>
 </root>

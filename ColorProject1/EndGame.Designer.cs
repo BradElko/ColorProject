@@ -31,15 +31,15 @@
             this.topPanel = new System.Windows.Forms.Panel();
             this.topLabel = new System.Windows.Forms.Label();
             this.middlePanel = new System.Windows.Forms.Panel();
+            this.middleLabel1 = new System.Windows.Forms.Label();
+            this.middleLabel2 = new System.Windows.Forms.Label();
+            this.middleLabel3 = new System.Windows.Forms.Label();
+            this.middleLabel4 = new System.Windows.Forms.Label();
+            this.middleLabel5 = new System.Windows.Forms.Label();
             this.bottomLeftPanel = new System.Windows.Forms.Panel();
             this.bottomLeftLabel = new System.Windows.Forms.Label();
             this.bottomRightLabel = new System.Windows.Forms.Label();
             this.bottomRightPanel = new System.Windows.Forms.Panel();
-            this.middleLabel1 = new System.Windows.Forms.Label();
-            this.middleLabel5 = new System.Windows.Forms.Label();
-            this.middleLabel4 = new System.Windows.Forms.Label();
-            this.middleLabel3 = new System.Windows.Forms.Label();
-            this.middleLabel2 = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             this.middlePanel.SuspendLayout();
             this.bottomLeftPanel.SuspendLayout();
@@ -48,6 +48,7 @@
             // 
             // topPanel
             // 
+            this.topPanel.BackColor = System.Drawing.Color.White;
             this.topPanel.Controls.Add(this.topLabel);
             this.topPanel.Location = new System.Drawing.Point(207, 30);
             this.topPanel.Name = "topPanel";
@@ -67,6 +68,7 @@
             // 
             // middlePanel
             // 
+            this.middlePanel.BackColor = System.Drawing.Color.White;
             this.middlePanel.Controls.Add(this.middleLabel1);
             this.middlePanel.Controls.Add(this.middleLabel2);
             this.middlePanel.Controls.Add(this.middleLabel3);
@@ -78,8 +80,55 @@
             this.middlePanel.TabIndex = 1;
             this.middlePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.middlePanel_Paint);
             // 
+            // middleLabel1
+            // 
+            this.middleLabel1.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleLabel1.Location = new System.Drawing.Point(186, 205);
+            this.middleLabel1.Name = "middleLabel1";
+            this.middleLabel1.Size = new System.Drawing.Size(371, 20);
+            this.middleLabel1.TabIndex = 0;
+            this.middleLabel1.Text = "Results";
+            this.middleLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // middleLabel2
+            // 
+            this.middleLabel2.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleLabel2.Location = new System.Drawing.Point(101, 186);
+            this.middleLabel2.Name = "middleLabel2";
+            this.middleLabel2.Size = new System.Drawing.Size(371, 19);
+            this.middleLabel2.TabIndex = 4;
+            this.middleLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // middleLabel3
+            // 
+            this.middleLabel3.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleLabel3.Location = new System.Drawing.Point(101, 23);
+            this.middleLabel3.Name = "middleLabel3";
+            this.middleLabel3.Size = new System.Drawing.Size(371, 19);
+            this.middleLabel3.TabIndex = 3;
+            this.middleLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // middleLabel4
+            // 
+            this.middleLabel4.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleLabel4.Location = new System.Drawing.Point(112, 60);
+            this.middleLabel4.Name = "middleLabel4";
+            this.middleLabel4.Size = new System.Drawing.Size(371, 19);
+            this.middleLabel4.TabIndex = 2;
+            this.middleLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // middleLabel5
+            // 
+            this.middleLabel5.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleLabel5.Location = new System.Drawing.Point(101, 108);
+            this.middleLabel5.Name = "middleLabel5";
+            this.middleLabel5.Size = new System.Drawing.Size(371, 19);
+            this.middleLabel5.TabIndex = 1;
+            this.middleLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // bottomLeftPanel
             // 
+            this.bottomLeftPanel.BackColor = System.Drawing.Color.White;
             this.bottomLeftPanel.Controls.Add(this.bottomLeftLabel);
             this.bottomLeftPanel.Location = new System.Drawing.Point(100, 432);
             this.bottomLeftPanel.Name = "bottomLeftPanel";
@@ -115,58 +164,13 @@
             // 
             // bottomRightPanel
             // 
+            this.bottomRightPanel.BackColor = System.Drawing.Color.White;
             this.bottomRightPanel.Controls.Add(this.bottomRightLabel);
             this.bottomRightPanel.Location = new System.Drawing.Point(484, 14);
             this.bottomRightPanel.Name = "bottomRightPanel";
             this.bottomRightPanel.Size = new System.Drawing.Size(233, 152);
             this.bottomRightPanel.TabIndex = 3;
             this.bottomRightPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bottomRightPanel_Paint);
-            // 
-            // middleLabel1
-            // 
-            this.middleLabel1.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleLabel1.Location = new System.Drawing.Point(186, 205);
-            this.middleLabel1.Name = "middleLabel1";
-            this.middleLabel1.Size = new System.Drawing.Size(371, 10);
-            this.middleLabel1.TabIndex = 0;
-            this.middleLabel1.Text = "Results";
-            this.middleLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // middleLabel5
-            // 
-            this.middleLabel5.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleLabel5.Location = new System.Drawing.Point(101, 108);
-            this.middleLabel5.Name = "middleLabel5";
-            this.middleLabel5.Size = new System.Drawing.Size(371, 19);
-            this.middleLabel5.TabIndex = 1;
-            this.middleLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // middleLabel4
-            // 
-            this.middleLabel4.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleLabel4.Location = new System.Drawing.Point(112, 60);
-            this.middleLabel4.Name = "middleLabel4";
-            this.middleLabel4.Size = new System.Drawing.Size(371, 19);
-            this.middleLabel4.TabIndex = 2;
-            this.middleLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // middleLabel3
-            // 
-            this.middleLabel3.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleLabel3.Location = new System.Drawing.Point(101, 23);
-            this.middleLabel3.Name = "middleLabel3";
-            this.middleLabel3.Size = new System.Drawing.Size(371, 19);
-            this.middleLabel3.TabIndex = 3;
-            this.middleLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // middleLabel2
-            // 
-            this.middleLabel2.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleLabel2.Location = new System.Drawing.Point(101, 186);
-            this.middleLabel2.Name = "middleLabel2";
-            this.middleLabel2.Size = new System.Drawing.Size(371, 19);
-            this.middleLabel2.TabIndex = 4;
-            this.middleLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EndGame
             // 

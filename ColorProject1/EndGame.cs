@@ -49,21 +49,21 @@ namespace ColorProject
             middleLabel1.Height = (middlePanel.Height / 5) - 1;
             middleLabel1.Width = middlePanel.Width - 4;
             middleLabel1.Location = new Point(2, 1);
-            middleLabel2.Height = (middlePanel.Height / 5) -1;
+            middleLabel2.Height = middlePanel.Height / 5;
             middleLabel2.Width = middlePanel.Width - 4;
-            middleLabel2.Location = new Point(2, (middlePanel.Height / 5));
+            middleLabel2.Location = new Point(2, (middlePanel.Height / 5) + 1);
             middleLabel2.Text = "Time (Seconds): " + Game.clickingTimer.Elapsed.Seconds;
-            middleLabel3.Height = (middlePanel.Height / 5) - 1;
+            middleLabel3.Height = middlePanel.Height / 5;
             middleLabel3.Width = middlePanel.Width - 4;
-            middleLabel3.Location = new Point(2, 2 * (middlePanel.Height / 5) - 1);
+            middleLabel3.Location = new Point(2, 2 * (middlePanel.Height / 5) + 1);
             middleLabel3.Text = "Accurate Clicks: " + Game.accurateClicks;
-            middleLabel4.Height = (middlePanel.Height / 5) - 1;
+            middleLabel4.Height = (middlePanel.Height / 5);
             middleLabel4.Width = middlePanel.Width - 4;
-            middleLabel4.Location = new Point(2, 3 * (middlePanel.Height / 5) - 2);
+            middleLabel4.Location = new Point(2, 3 * (middlePanel.Height / 5) + 1);
             middleLabel4.Text = "Inaccurate Clicks: " + Game.inaccurateClicks;
             middleLabel5.Height = (middlePanel.Height / 5) - 1;
             middleLabel5.Width = middlePanel.Width - 4;
-            middleLabel5.Location = new Point(2, 4 * (middlePanel.Height / 5) - 3);
+            middleLabel5.Location = new Point(2, 4 * (middlePanel.Height / 5) + 1);
             middleLabel5.Text = "Score: " + (Game.clickingTimer.Elapsed.Seconds + Game.accurateClicks + Game.inaccurateClicks);
             //BottomLeft1
             bottomLeftPanel.Height = 100;
@@ -108,19 +108,6 @@ namespace ColorProject
                 Color.Black, 2,
                 ButtonBorderStyle.Solid,
                 Color.Black, 1,
-                ButtonBorderStyle.Solid);
-        }
-        private void bottomPanel_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics,
-                bottomLeftPanel.ClientRectangle,
-                Color.Black, 2,
-                ButtonBorderStyle.Solid,
-                Color.Black, 1,
-                ButtonBorderStyle.Solid,
-                Color.Black, 2,
-                ButtonBorderStyle.Solid,
-                Color.Black, 2,
                 ButtonBorderStyle.Solid);
         }
         private void bottomLeftPanel_Paint(object sender, PaintEventArgs e)
