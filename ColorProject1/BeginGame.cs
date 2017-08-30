@@ -136,11 +136,11 @@ namespace ColorProject
         }
         private void bottomLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            //If you right-click (Mouse Down) on the Bottom Label...
+            //If you left-click (Mouse Down) on the Bottom Label...
             if(e.Button == MouseButtons.Left)
             {
                 /* Picks a random color from the list of colors. 
-                 * Turns the label font color to that color.
+                 * Bottom Label Color = Initial Color.
                 */
                 randomColor = r.Next(colors.Count);
                 colorOutput = colors[randomColor];
@@ -149,12 +149,10 @@ namespace ColorProject
         }
         private void bottomLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            //If you right-click (Mouse Up) on the Bottom Label...
+            //If you left-click (Mouse Up) on the Bottom Label...
             if (e.Button == MouseButtons.Left)
             {
-                /* Opens up the Game form. 
-                 * Closes the form.
-                */
+                //Opens up the Game Form and closes this Form.
                 Game gform = new Game();
                 gform.Show();
                 this.Hide();

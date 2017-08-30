@@ -19,6 +19,7 @@ namespace ColorProject
         string colorOutput;
         public EndGame()
         {
+            //Adds colors to a list.
             colors.Add("Red");
             colors.Add("Orange");
             colors.Add("Yellow");
@@ -68,7 +69,7 @@ namespace ColorProject
             middleLabel5.Height = (middlePanel.Height / 5) - 1;
             middleLabel5.Width = middlePanel.Width - 4;
             middleLabel5.Location = new Point(2, 4 * (middlePanel.Height / 5) + 1);
-            middleLabel5.Text = "Score: " + (Game.clickingTimer.Elapsed.Seconds + Game.accurateClicks + Game.inaccurateClicks);
+            middleLabel5.Text = "Score: " + (Game.seconds + Game.accurateClicks + Game.inaccurateClicks);
             //Bottom Left Panel
             bottomLeftPanel.Height = 100;
             bottomLeftPanel.Width = Screen.GetWorkingArea(this).Width/2;
@@ -147,11 +148,11 @@ namespace ColorProject
         }
         private void bottomLeftLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            //If left-clicked (Mouse Down) the Bottom Left Label...
+            //If you left-click(Mouse Down) the Bottom Left Label...
             if (e.Button == MouseButtons.Left)
             {
                 /* Chooses a color from the list.
-                 * Makes the Bottom Left Label Color into the Selected Color.
+                 * Bottom Left Label Color = Initial Color.
                 */ 
                 randomColor = r.Next(colors.Count);
                 colorOutput = colors[randomColor];
@@ -160,10 +161,10 @@ namespace ColorProject
         }
         private void bottomLeftLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            //If left-clicked (Mouse Up) the Bottom Left Label...
+            //If you left-click (Mouse Up) the Bottom Left Label...
             if (e.Button == MouseButtons.Left)
             {
-                /* Changes the Bottom Left Label Color to Black.
+                /* Bottom Left Label Color = Black.
                  * Shows the Game Form.
                  * Closes this Form.
                 */
@@ -174,11 +175,11 @@ namespace ColorProject
         }
         private void bottomRightLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            //If left-clicked (Mouse Down) the Bottom Right Label...
+            //If you left-click (Mouse Down) the Bottom Right Label...
             if (e.Button == MouseButtons.Left)
             {
                 /* Chooses a color from the list.
-                 * Makes the Bottom Right Label Color into the Selected Color.
+                 * Bottom Right Label Color = Initial Color.
                 */
                 randomColor = r.Next(colors.Count);
                 colorOutput = colors[randomColor];
@@ -187,10 +188,10 @@ namespace ColorProject
         }
         private void bottomRightLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            //If left-clicked (Mouse Up) the Bottom Right Label...
+            //If you left-click (Mouse Up) the Bottom Right Label...
             if (e.Button == MouseButtons.Left)
             {
-                /* Changes the Bottom Right Label Color to Black.
+                /* CBottom Right Label Color = Black.
                  * Ends Program.
                 */
                 bottomRightLabel.ForeColor = Color.Black;

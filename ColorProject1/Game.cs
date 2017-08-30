@@ -13,17 +13,15 @@ namespace ColorProject
 {
     public partial class Game : Form
     {
-        bool clockStarted, clickedRightColor, clickedRightName, clickedRightNameColor;
+        bool clickedRightColor, clickedRightName, clickedRightNameColor;
         List<string> colors = new List<string>();
         Random r = new Random();
         public static int randomColor, accurateClicks, inaccurateClicks, seconds;
-        string colorOutput;
+        string colorOutput, colorOutput1, colorOutput2, selectedColor1, selectedColor2;
         public static System.Diagnostics.Stopwatch clickingTimer = new System.Diagnostics.Stopwatch();
         public Game()
         {
-            /* Adds colors to the list. 
-             * Chooses a color.
-            */
+            //Adds colors to the list and chooses a color from that list.
             colors.Add("Red");
             colors.Add("Orange");
             colors.Add("Yellow");
@@ -123,7 +121,7 @@ namespace ColorProject
         }
         private void topPanel_MouseUp(object sender, MouseEventArgs e)
         {
-            //If you left-click (Mouse Down) the Top Panel instead of the Top Label
+            //If you left-clicked (Mouse Down) the Top Panel instead of the Top Label...
             if(e.Button == MouseButtons.Left)
             {
                 //Adds an inaccurate click.
@@ -132,50 +130,49 @@ namespace ColorProject
         }
         private void topLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            /* If the Left Color Panel = Selected Color...
-             * If the Right Color Name = Seleceed Color Name...
-             * If the Right Color Name Color = Selected Color...
+            /* If the Left Color Panel Color == Selected Color...
+             * If the Right Color Text == Seleceed Color Text...
+             * If the Right Color Text Color == Selected Color...
              * If you left-clicked (Mouse Down) the Top Label...
             */
             if (clickedRightColor && clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
             {
-                //Turns the Top Label to the selected color.
+                //Top Label Color = Initial Color.
                 topLabel.ForeColor = Color.FromName(colorOutput);
             }
         }
         private void topLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            /* If the Clock did not start...
-             * If the Left Color Panel != Selected Color...
-             * If the Right Color Name != Selected Color...
-             * If the Right Color Name Color != Selected Color...
+            /* If the Left Color Panel != Selected Color...
+             * If the Right Color Text != Selected Color Text...
+             * If the Right Color Text Color != Selected Color...
+             * If the Top Label Text == "Click Here To Start"...
              * If you left-clicked (Mouse Up) the Top Label...
             */
-            if (!clockStarted && !clickedRightColor && !clickedRightName && !clickedRightNameColor && e.Button == MouseButtons.Left)
+            if (!clickedRightColor && !clickedRightName && !clickedRightNameColor && topLabel.Text == "Click Here To Start" && e.Button == MouseButtons.Left)
             {
-                /* Puts the Top Label text to the Selected Color Name.
+                /* Top Label Text = Initial  Color Text.
                  * Sets the accurate and inaccurate clicks to 0.
-                 * Starts the timer and confirms that the timer started.
+                 * Starts the Timer and confirms that the Timer has started.
                 */
                 topLabel.Text = colorOutput;
                 accurateClicks = 0;
                 inaccurateClicks = 0;
                 clickingTimer.Start();
-                clockStarted = true;
             }
-            /* If the Left Color Panel = Selected Color...
-             * If the Right Color Name = Selected Color...
-             * If the Right Color Name Color = Selected Color...
+            /* If the Left Color Panel Color == Selected Color...
+             * If the Right Color Text = Selected Color Text...
+             * If the Right Color Text Color = Selected Color...
              * If you left-clicked (Mouse Up) the Top Label...
             */
             else if (clickedRightColor && clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
             {
                 /* Adds an accurate click.
                  * Clears the clipboard.
-                 * Stops the timer.
+                 * Stops the Timer.
                  * Adds the seconds to an Integer.
-                 * Resets the timer.
-                 * Changes the text color to black.
+                 * Resets the Timer.
+                 * Top Label Color = Black.
                  * Closes this form and opens the EndGame form.
                 */
                 accurateClicks++;
@@ -205,50 +202,42 @@ namespace ColorProject
         }
         private void leftColorPanel_MouseUp(object sender, MouseEventArgs e)
         {
-            /* If Left Color Panel Color != Selected Color...
-             * If Top Label Text is not the default text...
+            /* If Left Color Panel Color != Initial Color...
+             * If Top Label Text != "Click Here To Start"...
              * If you left-clicked (Mouse Up) the Left Color Panel...
             */
             if (!clickedRightColor && topLabel.Text != "Click Here To Start" && e.Button == MouseButtons.Left)
             {
-                //Picks a color from the list.
-                randomColor = r.Next(colors.Count);
-                string colorOutput2 = colors[randomColor];
-                //while the Selected Color is equal to the previous Selected Color...
-                while (colorOutput2 == leftColorPanel.BackColor.Name)
+                //while the Selected Color = Previous Selected Color...
+                while (selectedColor1 == colorOutput1)
                 {
-                    //Picks another color from the list.
+                    //Picks a color from the list.
                     randomColor = r.Next(colors.Count);
-                    colorOutput2 = colors[randomColor];
-                    //If the Selected Color is not equal to the Initial Color...
-                    if (colorOutput2 != leftColorPanel.BackColor.Name)
-                    {
-                        /* Changes the Left Color Panel to the Selected Color.
-                         * Adds an accurate click.
-                         * Breaks out of the while loop.
-                        */
-                        leftColorPanel.BackColor = Color.FromName(colorOutput2);
-                        accurateClicks++;
-                        break;
-                    }
+                    colorOutput1 = colors[randomColor];
                 }
-                //If the Left Color Panel Color is not equal to the Initial Color...
-                if (colorOutput2 != leftColorPanel.BackColor.Name)
+                //If the Selected Color != Initial Color...
+                if (colorOutput1 != colorOutput)
                 {
-                    /* The Left Color Panel Color is equal to the Selected Color.
+                    /* Label Color Panel Color = Selected Color.
+                     * Confirms Selected Color.
                      * Adds an accurate click.
                     */
-                    leftColorPanel.BackColor = Color.FromName(colorOutput2);
+                    leftColorPanel.BackColor = Color.FromName(colorOutput1);
+                    selectedColor1 = colorOutput1;
                     accurateClicks++;
                 }
-                //If the Left Color Panel Color is equal to the Initial Color...
-                if (Convert.ToString(leftColorPanel.BackColor.Name) == colorOutput)
+                //If the Selected Color == Initial Color...
+                else if (colorOutput1 == colorOutput)
                 {
-                    /* Confirms the Left Color Panel Color is equal to the Initial Color.
-                     * Sets the Cursor back to the default Cursor.
+                    /* Left Color Panel Color = Initial Color.
+                     * Changes the Cursor.
+                     * Adds an accurate click.
+                     * Confirms Correct Color.
                     */
-                    clickedRightColor = true;
+                    leftColorPanel.BackColor = Color.FromName(colorOutput1);
                     leftColorPanel.Cursor = Cursors.Default;
+                    accurateClicks++;
+                    clickedRightColor = true;
                 }
             }
             /* If Left Color Panel Color = Selected Color...
@@ -271,61 +260,91 @@ namespace ColorProject
         }
         private void rightLabel_MouseUp(object sender, MouseEventArgs e)
         {
+            /* If the Right Label Text != Initial Color Text...
+             * If the Top Label Text != "Click Here To Start"...
+             * If you left-clicked (Mouse Up) the Right Label...
+            */
             if(!clickedRightName && topLabel.Text != "Click Here To Start" && e.Button == MouseButtons.Left)
             {
-                randomColor = r.Next(colors.Count);
-                string colorOutput2 = colors[randomColor];
-                while (colorOutput2 == rightLabel.Text)
+                //while the Selected Color = Previous Selected Color...
+                while (selectedColor2 == colorOutput2)
                 {
+                    //Picks a color from the list.
                     randomColor = r.Next(colors.Count);
                     colorOutput2 = colors[randomColor];
-                    if (colorOutput2 != rightLabel.Text)
-                    {
-                        rightLabel.Text = colorOutput2;
-                        accurateClicks++;
-                        break;
-                    }
                 }
-                if (colorOutput2 != rightLabel.Text)
+                //If the Selected Color != Initial Color...
+                if (colorOutput2 != colorOutput)
                 {
+                    /* Right Label Text = Selected Color Text.
+                     * Confirms Selected Color.
+                     * Adds an accurate click.
+                    */
                     rightLabel.Text = colorOutput2;
+                    selectedColor2 = colorOutput2;
                     accurateClicks++;
                 }
-                if (rightLabel.Text == colorOutput)
+                //If the Selected Color == Initial Color...
+                else if (colorOutput2 == colorOutput)
                 {
+                    /* Right Label Text = Initial Color Text.
+                     * Confirms Selected Color 
+                     * Adds an accurate click.
+                     * Confirms Correct Color.
+                    */
+                    rightLabel.Text = colorOutput2;
+                    selectedColor2 = colorOutput2;
+                    accurateClicks++;
                     clickedRightName = true;
                 }
-                System.Windows.Forms.Clipboard.Clear();
             }
-            else if(clickedRightName && !clickedRightNameColor && e.Button == MouseButtons.Left)
+            /* If the Right Label Text == Initial Color Text...
+             * If the Right Label Text Color != Initial Color Text Color...
+             * If you left-clicked (Mouse Up) the Right Label...
+            */
+            else if (clickedRightName && !clickedRightNameColor && e.Button == MouseButtons.Left)
             {
-                randomColor = r.Next(colors.Count);
-                string colorOutput2 = colors[randomColor];
-                while (rightLabel.ForeColor == Color.FromName(colorOutput2))
+                //while the Selected Color = Previous Selected Color...
+                while (selectedColor2 == colorOutput2)
                 {
+                    //Picks a color from the list.
                     randomColor = r.Next(colors.Count);
                     colorOutput2 = colors[randomColor];
-                    if (rightLabel.ForeColor != Color.FromName(colorOutput2))
-                    {
-                        rightLabel.ForeColor = Color.FromName(colorOutput2);
-                        accurateClicks++;
-                        break;
-                    }
                 }
-                if (rightLabel.ForeColor != Color.FromName(colorOutput2))
+                //If the Selected Color != Initial Color...
+                if (colorOutput2 != colorOutput)
                 {
+                    /* Right Label Text Color = Selected Color.
+                     * Confirms Selected Color.
+                     * Adds an accurate click.
+                    */
                     rightLabel.ForeColor = Color.FromName(colorOutput2);
+                    selectedColor2 = colorOutput2;
                     accurateClicks++;
                 }
-                if (rightLabel.ForeColor.Name == colorOutput)
+                //If the Selected Color == Initial Color...
+                else if (colorOutput2 == colorOutput)
                 {
-                    clickedRightNameColor = true;
+                    /* Right Label Text Color = Initial Color.
+                     * Adds an accurate click.
+                     * Changes the Cursor
+                     * Confirms Correct Color.
+                     * Clears the clipboard.
+                    */
+                    rightLabel.ForeColor = Color.FromName(colorOutput2);
+                    accurateClicks++;
                     rightLabel.Cursor = Cursors.Default;
+                    clickedRightNameColor = true;
+                    System.Windows.Forms.Clipboard.Clear();
                 }
-                System.Windows.Forms.Clipboard.Clear();
             }
+            /* If the Right Label Text == Initial Color Text...
+             * If the Right Label Text Color == Initial Color Text Color...
+             * If you left-clicked (Mouse Up) the Right Label...
+            */
             else if (clickedRightName && clickedRightNameColor && e.Button == MouseButtons.Left)
             {
+                //Adds an inaccurate click.
                 inaccurateClicks++;
             }
         }
