@@ -257,6 +257,9 @@ body{
 #bl1{
     cursor:pointer;
 }
+#bl3{
+    cursor:pointer;
+}
 #bp1{
     border-width:1px 2px 2px 2px;
     border-color:black;
